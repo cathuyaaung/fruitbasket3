@@ -5,6 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+require('./models/State');
+require('./models/District');
+require('./models/Town');
+require('./models/Township');
+require('./models/Village');
+require('./models/VillageTract');
+require('./models/Ward');
+mongoose.connect('mongodb://localhost/fruitbasket');
+
 var app = express();
 
 // uncomment after placing your favicon in /public
