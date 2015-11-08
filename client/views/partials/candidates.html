@@ -5,7 +5,7 @@
 <!-- Dropdown Lists Row -->
 <div class="row">
 
-  <div class="col-md-2">
+  <div class="col-md-3">
 
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
@@ -13,11 +13,12 @@
         {{selectedStateName}}
         <span class="caret"></span>
       </button>
-      <!-- <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li ng-repeat="state in states.data">
-          <a ng-click="selectState(state)">{{state.name}}</a>
-        </li>
-      </ul> -->
+	  <ul class="dropdown-menu" aria-labelledby="ddlStates">
+        <li ng-repeat="state in states">
+          <!-- <button class="btn" ng-click="selectState(state)">{{state.name}}</button> -->
+          <a ng-click="selectState(state)">{{state.State_Region_Mya_MM3}}</a>
+		</li>
+      </ul>
     </div>
     
   </div>
@@ -70,7 +71,7 @@
     </div>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-md-1">
 
     <select class="form-control">
       <option>1</option>

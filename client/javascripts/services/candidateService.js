@@ -13,5 +13,9 @@ candidateServices.factory('candidateListService', ['$resource',
 
 candidateServices.factory('stateListService', ['$resource',
   function($resource){ 
-	return $resource('http://localhost:3000/states');
+	return $resource(
+		'http://localhost:3000/states', {}, {
+		getStateList: {method: 'GET', params:{}, isArray:true}
+		}
+	);
   }]);

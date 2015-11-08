@@ -1,6 +1,6 @@
 /* Candidate Controllers */
   
-var candidateCtrls = angular.module('candidateCtrls', ['candidateServices']);
+var candidateCtrls = angular.module('candidateCtrls', []);
 
 
 candidateCtrls.controller('candidateListCtr', ['$scope', '$route', 'stateListService',
@@ -8,22 +8,20 @@ candidateCtrls.controller('candidateListCtr', ['$scope', '$route', 'stateListSer
 	
 
 	$scope.selectedStateName = "States";
-
-	//console.log(stateListService.getStateList().data);
-	// console.log(stateListService.get({}, function(){
-	// 	console.log('here');
-	// }));
-
-	$scope.states = stateListService.get();
+	$scope.states = stateListService.getStateList();
+	
 
 	$scope.selectState = function(state){
-		$scope.selectedStateName = state.name;
+		$scope.selectedStateName = state.State_Region_Mya_MM3;
 	};
 
-
-	// $scope.getCandidateList = function(){
-	// 	console.log('getCandidateList()');
-	// 	$scope.candidates = candidateListService.getCandidateList();
- //      };
-
+	$scope.getCandidateList = function(){
+		console.log('getCandidateList()');
+		$scope.candidates = candidateListService.getCandidateList();
+      };
+	  
+	$scope.getStateList = function(){
+		console.log('getStateList()');
+		$scope.states = stateListService.getStateList();
+      };
 }]);

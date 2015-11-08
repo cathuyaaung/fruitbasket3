@@ -1,5 +1,5 @@
 var app = angular.module('fruitbasketapp', 
-['ngRoute', 'candidateCtrls', 'faqCtrls', 'partyCtrls', 'mainCtrls', 'navbarCtrls'])
+['ngRoute', 'candidateCtrls', 'faqCtrls', 'partyCtrls', 'mainCtrls', 'navbarCtrls', 'candidateServices'])
 ;
 
 
