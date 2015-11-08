@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="fruitbasketapp">
+  <head>
+    <title>Fruit Basket 2</title>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/routes/routes.js"></script>
+    <script src="/javascripts/controllers/mainCtrls.js"></script>
+    <script src="/javascripts/controllers/candidateCtrls.js"></script>
+    <script src="/javascripts/controllers/faqCtrls.js"></script>
+    <script src="/javascripts/controllers/partiesCtrls.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <header>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse"
+                data-target="#example">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                    
+                </button>
+                <a href="/#/" class="navbar-brand">Fruit Basket 2</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/#/candidates">Candiates</a></li>
+                    <li><a href="/#/parties">Parties</a></li>
+                    <li><a href="/#/faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>  	
+
+	<div class="container">
+		<div ng-view></div>		
+	</div>
+
+
+  </body>
+</html>
