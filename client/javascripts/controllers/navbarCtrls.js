@@ -19,12 +19,16 @@ navbarCtrls.directive('isActiveNav', [ '$location', function($location) {
 return {
  restrict: 'A',
  link: function(scope, element) {
+
+    console.log(element);
+
    scope.location = $location;
+
    scope.$watch('location.path()', function(currentPath) {
 
     	currentPath = currentPath.substr(1, currentPath.length);
     	if(currentPath.indexOf('/') > -1){
-			currentPath = currentPath.substr(0, currentPath.indexOf('/'));
+			 currentPath = currentPath.substr(0, currentPath.indexOf('/'));
     	} 	
     	
      if('/#/' + currentPath === element[0].attributes['href'].nodeValue) {
