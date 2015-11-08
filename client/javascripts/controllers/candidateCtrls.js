@@ -1,6 +1,6 @@
 /* Candidate Controllers */
   
-var candidateCtrls = angular.module('candidateCtrls', []);
+var candidateCtrls = angular.module('candidateCtrls', ['candidateServices']);
 
 
 candidateCtrls.controller('candidatesCtrl',[
@@ -12,6 +12,8 @@ function($scope){
 .controller('candidateListCtr', ['$scope', 'candidateListService',
   function($scope, candidateListService) {
 	
+	$scope.title = "ABCD";
+
 	$scope.getCandidateList = function(){
 		console.log('getCandidateList()');
 		$scope.candidates = candidateListService.getCandidateList();

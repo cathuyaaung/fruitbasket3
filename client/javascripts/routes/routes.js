@@ -9,7 +9,7 @@ function($routeProvider, $locationProvider){
 	})
 	.when('/candidates', {
 		templateUrl: '/partials/candidates.html',
-		controller: 'candidatesCtrl'		
+		controller: 'candidateListCtr'		
 	})
 	.when('/parties', {
 		templateUrl: '/partials/parties.html',
