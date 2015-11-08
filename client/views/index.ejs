@@ -11,6 +11,7 @@
 
     <script src="/javascripts/app.js"></script>
     <script src="/javascripts/routes/routes.js"></script>
+    <script src="/javascripts/controllers/navbarCtrls.js"></script>
     <script src="/javascripts/controllers/mainCtrls.js"></script>
     <script src="/javascripts/controllers/candidateCtrls.js"></script>
     <script src="/javascripts/controllers/faqCtrls.js"></script>
@@ -23,7 +24,7 @@
   </head>
   <body>
 
-    <header>
+    <header ng-controller="navbarCtrl">
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse"
@@ -32,13 +33,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                    
                 </button>
-                <a href="/#/" class="navbar-brand">Fruit Basket 2</a>
+                <a href="/#/" class="navbar-brand">Fruit Basket 3</a>
             </div>
             <div class="collapse navbar-collapse" id="example">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/#/candidates">Candiates</a></li>
-                    <li><a href="/#/parties">Parties</a></li>
-                    <li><a href="/#/faq">FAQ</a></li>
+                    <li>
+                        <a is-active-nav href="/#/candidates">Candiates</a>
+                    </li>
+                    <li>
+                        <a is-active-nav href="/#/parties">Parties</a>
+                    </li>
+                    <li>
+                        <a is-active-nav href="/#/faq">FAQ</a>
+                    </li>
                 </ul>
             </div>
         </div>
