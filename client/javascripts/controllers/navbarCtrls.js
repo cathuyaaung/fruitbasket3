@@ -19,9 +19,6 @@ navbarCtrls.directive('isActiveNav', [ '$location', function($location) {
 return {
  restrict: 'A',
  link: function(scope, element) {
-
-    console.log(element);
-
    scope.location = $location;
 
    scope.$watch('location.path()', function(currentPath) {

@@ -3,37 +3,27 @@
 var candidateCtrls = angular.module('candidateCtrls', ['candidateServices']);
 
 
-candidateCtrls.controller('candidateListCtr', ['$scope', 'candidateListService', '$route',
-  function($scope, candidateListService, $route) {
+candidateCtrls.controller('candidateListCtr', ['$scope', '$route', 'stateListService',
+  function($scope, $route, stateListService) {
 	
 
-	$scope.selectedStateName = "Please select state";
-	$scope.states = [
-		{
-			name: 'State 1'
-		},
-		{
-			name: 'State 2'
-		},
-		{
-			name: 'State 3'
-		},
-		{
-			name: 'State 4'
-		},
-		{
-			name: 'State 5'
-		},
+	$scope.selectedStateName = "States";
 
-	];
+	//console.log(stateListService.getStateList().data);
+	// console.log(stateListService.get({}, function(){
+	// 	console.log('here');
+	// }));
+
+	$scope.states = stateListService.get();
+
 	$scope.selectState = function(state){
 		$scope.selectedStateName = state.name;
 	};
 
 
-	$scope.getCandidateList = function(){
-		console.log('getCandidateList()');
-		$scope.candidates = candidateListService.getCandidateList();
-      };
+	// $scope.getCandidateList = function(){
+	// 	console.log('getCandidateList()');
+	// 	$scope.candidates = candidateListService.getCandidateList();
+ //      };
 
 }]);
