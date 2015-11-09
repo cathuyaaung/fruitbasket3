@@ -5,95 +5,44 @@
 <!-- Dropdown Lists Row -->
 <div class="row">
 
-  <div class="col-md-2">
-
+  <div class="col-sm-3">
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        {{selectedStateName}}
-        <span class="caret"></span>
+        {{selectedStateName}} <span class="caret"></span>
       </button>
-      <!-- <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li ng-repeat="state in states.data">
-          <a ng-click="selectState(state)">{{state.name}}</a>
+      <ul class="dropdown-menu" aria-labelledby="ddlStates">
+        <li ng-repeat="state in states">
+          <a ng-click="selectState(state)">{{state.State_Region_Mya_MM3}}</a>
         </li>
-      </ul> -->
-    </div>
-    
-  </div>
-
-  <div class="col-md-2">
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Districts
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li><a href="#">Separated link</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-sm-3">
     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
+      <button class="btn btn-default dropdown-toggle" type="button" id="ddlDistricts" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Townships
-        <span class="caret"></span>
+        {{selectedDistrictName}} <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li><a href="#">Separated link</a></li>
+      <ul class="dropdown-menu" aria-labelledby="ddlDistricts">
+        <li ng-repeat="district in districts">
+          <a ng-click="selectDistrict(district)">{{district.District_Mya_MM3}}</a>
+        </li>
       </ul>
     </div>
   </div>
 
-  <div class="col-md-2">
+  <div class="col-sm-3">
     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
+      <button class="btn btn-default dropdown-toggle" type="button" id="ddlTownship" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Towns
-        <span class="caret"></span>
+        {{selectedTownshipName}} <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-md-2">
-
-    <select class="form-control">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-
-  </div>
-
-  <div class="col-md-2">
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Village Tracts
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="ddlStates">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li><a href="#">Separated link</a></li>
+      <ul class="dropdown-menu" aria-labelledby="ddlTownship">
+        <li ng-repeat="township in townships">
+          <a ng-click="selectTownship(township)">{{township.Township_Mya_MM3}}</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -112,57 +61,37 @@
         <h3 class="panel-title">Upper House</h3>
       </div>
       <div class="panel-body">
-        Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
       </div>
       <!-- List group -->
       <ul class="list-group">
         
         <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
+        <a href="#" class="list-group-item clearfix" ng-repeat="upperCandidate in upperCandidates.data">
           <div class="col-sm-2">
-            <img src="" alt="" width="50px">
+            <img ng-src="{{upperCandidate.photo_url}}" class="img-circle" width="30">
           </div>
           <div class="col-sm-10">
             <div class="row">
               <div class="col-sm-12">
                 <h4 class="list-group-item-heading">
-                  List group item heading
+                  {{upperCandidate.name}}                  
                 </h4>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
+                <p class="list-group-item-text">       
+                  {{upperCandidate.legislature}}           
+                  {{upperCandidate.constituency.name}}
+                  {{upperCandidate.party.partyname}}
+                  <img ng-src="{{upperCandidate.party.party_flag}}" class="" width="10" height="10">
+                  <img ng-src="{{upperCandidate.party.party_seal}}" class="" width="10" height="10">
                 </p>
               </div>
             </div>
           </div>
         </a>
-        <!-- End of List Item -->
-        <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
-          <div class="col-sm-2">
-            <img src="" alt="" width="50px">
-          </div>
-          <div class="col-sm-10">
-            <div class="row">
-              <div class="col-sm-12">
-                <h4 class="list-group-item-heading">
-                  List group item heading
-                </h4>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <!-- End of List Item -->          
+        <!-- End of List Item -->       
       </ul>
       <!-- End of List group -->        
     </div>      
@@ -174,57 +103,39 @@
         <h3 class="panel-title">Lower House</h3>
       </div>
       <div class="panel-body">
-        Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+        
       </div>
       <!-- List group -->
       <ul class="list-group">
         
         <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
+        <a href="#" class="list-group-item clearfix" ng-repeat="lowerCandidate in lowerCandidates.data">
           <div class="col-sm-2">
-            <img src="" alt="" width="50px">
+            <img ng-src="{{lowerCandidate.photo_url}}" class="img-circle" width="30">
           </div>
           <div class="col-sm-10">
             <div class="row">
               <div class="col-sm-12">
                 <h4 class="list-group-item-heading">
-                  List group item heading
+                  {{lowerCandidate.name}}                  
                 </h4>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
+                <p class="list-group-item-text">       
+                  {{lowerCandidate.legislature}}           
+                  {{lowerCandidate.constituency.name}}
+                  {{lowerCandidate.party.partyname}}
+                  <img ng-src="{{lowerCandidate.party.party_flag}}" class="" width="10" height="10">
+                  <img ng-src="{{lowerCandidate.party.party_seal}}" class="" width="10" height="10">
                 </p>
               </div>
             </div>
           </div>
         </a>
-        <!-- End of List Item -->
-        <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
-          <div class="col-sm-2">
-            <img src="" alt="" width="50px">
-          </div>
-          <div class="col-sm-10">
-            <div class="row">
-              <div class="col-sm-12">
-                <h4 class="list-group-item-heading">
-                  List group item heading
-                </h4>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <!-- End of List Item -->          
+        <!-- End of List Item -->       
+        
       </ul>
       <!-- End of List group -->      
     </div>        
@@ -236,57 +147,39 @@
         <h3 class="panel-title">State House</h3>
       </div>
       <div class="panel-body">
-        Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+        
       </div>
      <!-- List group -->
       <ul class="list-group">
         
         <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
+        <a href="#" class="list-group-item clearfix" ng-repeat="stateCandidate in stateCandidates.data">
           <div class="col-sm-2">
-            <img src="" alt="" width="50px">
+            <img ng-src="{{stateCandidate.photo_url}}" class="img-circle" width="30">
           </div>
           <div class="col-sm-10">
             <div class="row">
               <div class="col-sm-12">
                 <h4 class="list-group-item-heading">
-                  List group item heading
+                  {{stateCandidate.name}}                  
                 </h4>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
+                <p class="list-group-item-text">                  
+                  {{stateCandidate.legislature}}
+                  {{stateCandidate.constituency.name}}
+                  {{stateCandidate.party.partyname}}
+                  <img ng-src="{{stateCandidate.party.party_flag}}" class="" width="10" height="10">
+                  <img ng-src="{{stateCandidate.party.party_seal}}" class="" width="10" height="10">
                 </p>
               </div>
             </div>
           </div>
         </a>
-        <!-- End of List Item -->
-        <!-- List Item -->
-        <a href="#" class="list-group-item clearfix">
-          <div class="col-sm-2">
-            <img src="" alt="" width="50px">
-          </div>
-          <div class="col-sm-10">
-            <div class="row">
-              <div class="col-sm-12">
-                <h4 class="list-group-item-heading">
-                  List group item heading
-                </h4>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p class="list-group-item-text">
-                  Use contextual classes to style list items, default or linked.
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-        <!-- End of List Item -->          
+        <!-- End of List Item -->    
+       
       </ul>
       <!-- End of List group -->          
     </div>        

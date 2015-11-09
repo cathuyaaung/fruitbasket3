@@ -12,6 +12,25 @@ var VillageTract = mongoose.model('VillageTract');
 var Ward = mongoose.model('Ward');
 
 
+
+router.get('/apikey', function(req,res, next){
+  var request = require('request');
+  console.log('generating key');
+  request.post(
+      'http://api.maepaysoh.org/token/generate',
+      { form: { api_key: '35a0c713ea2fd79913d2d30f6bc627073cd1edd9' } },
+      function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+              res.json(body);
+          } else {
+              return next(err);
+          }
+      }
+  );
+
+});
+
+
 router.get('/states', function(req, res, next) {
   State.find({}, 'SR_Pcode State_Region_Mya_MM3',function(err, states){
     if(err){ return next(err); }

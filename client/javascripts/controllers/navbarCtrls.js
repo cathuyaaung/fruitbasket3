@@ -6,6 +6,7 @@ var navbarCtrls = angular.module('navbarCtrls', []);
 navbarCtrls.controller('navbarCtrl',[
 '$scope', '$location',
 function($scope, $location){
+
 	$scope.title = "navbarCtrl";
 
 	$scope.isActive = function (viewLocation) {
@@ -13,7 +14,13 @@ function($scope, $location){
 	     return active;
 	};
 
+
 }]);
+
+navbarCtrls.service('apiKeyService', function(){});
+
+
+
 
 navbarCtrls.directive('isActiveNav', [ '$location', function($location) {
 return {
