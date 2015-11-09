@@ -5,11 +5,10 @@ var candidateCtrls = angular.module('candidateCtrls', []);
 
 candidateCtrls.controller('candidateListCtr', 
 ['$scope', '$route', 'stateListService', 'districtListService', 'townshipListService',
-'getCandidateService', 
+'getCandidateService', 'guyFactory',
 function($scope, $route, stateListService, districtListService, townshipListService,
-getCandidateService) {
+getCandidateService, guyFactory) {
 	
-
 	$scope.selectedStateName = "-- States --";
 	$scope.selectedStateCode = "";
 	$scope.selectedDistrictName = "-- Districts --";
@@ -53,34 +52,89 @@ getCandidateService) {
 		$scope.selectedTownshipName = township.Township_Mya_MM3;
 		$scope.selectedTownshipCode = township.TS_Pcode;
 
-		console.log('Getting list');
-		console.log($scope.selectedTownshipCode);
+		// guyFactory.getGuys().success(function(data){
+		// 	console.log(data);
+		// }).error(function(err){
+		// 	console.log(err);
+		// });
 
+		// $scope.upperCandidates = getCandidateService.query(
+		// 	{
+		// 		st:$scope.selectedStateCode, 
+		// 		dt:$scope.selectedDistrictCode, 
+		// 		ts:$scope.selectedTownshipCode,
+		// 		house: 'အမျိုးသားလွှတ်တော်'
+		// 	});
+
+		// $scope.lowerCandidates = getCandidateService.query(
+		// 	{
+		// 		st:$scope.selectedStateCode, 
+		// 		dt:$scope.selectedDistrictCode, 
+		// 		ts:$scope.selectedTownshipCode,
+		// 		house: 'lower_house'
+		// 	});		
+
+		// $scope.stateCandidates = getCandidateService.query(
+		// 	{
+		// 		st:$scope.selectedStateCode, 
+		// 		dt:$scope.selectedDistrictCode, 
+		// 		ts:$scope.selectedTownshipCode,
+		// 		house: 'state_region'
+		// 	});		
+	};
+
+	$scope.getUpperGuys = function(){
+		// if($scope.selectedStateCode === '' ||
+		// 	$scope.selectedDistrictCode === '' ||
+		// 	$scope.selectedTownshipCode === ''){
+		// 	return;
+		// }
 		$scope.upperCandidates = getCandidateService.query(
 			{
 				st:$scope.selectedStateCode, 
 				dt:$scope.selectedDistrictCode, 
 				ts:$scope.selectedTownshipCode,
 				house: 'အမျိုးသားလွှတ်တော်'
-			});
-
+			});		
+	};
+	$scope.getLowerGuys = function(){
+		// if($scope.selectedStateCode === '' ||
+		// 	$scope.selectedDistrictCode === '' ||
+		// 	$scope.selectedTownshipCode === ''){
+		// 	return;
+		// }		
 		$scope.lowerCandidates = getCandidateService.query(
 			{
 				st:$scope.selectedStateCode, 
 				dt:$scope.selectedDistrictCode, 
 				ts:$scope.selectedTownshipCode,
 				house: 'lower_house'
-			});		
-
+			});				
+	};
+	$scope.getStateGuys = function(){
+		// if($scope.selectedStateCode === '' ||
+		// 	$scope.selectedDistrictCode === '' ||
+		// 	$scope.selectedTownshipCode === ''){
+		// 	return;
+		// }		
 		$scope.stateCandidates = getCandidateService.query(
 			{
 				st:$scope.selectedStateCode, 
 				dt:$scope.selectedDistrictCode, 
 				ts:$scope.selectedTownshipCode,
 				house: 'state_region'
-			});		
-
-
+			});			
 	};
+
+
+	$scope.getCandidateList = function(){
+		console.log('getCandidateList()');
+		$scope.candidates = candidateListService.getCandidateList();
+      };
+	  
+	$scope.getStateList = function(){
+		console.log('getStateList()');
+		$scope.states = stateListService.getStateList();
+      };
 
 }]);

@@ -10,7 +10,6 @@ candidateServices.factory('candidateListService', ['$resource',
 	);
   }]);
 
-
 candidateServices.factory('stateListService', 
 ['$resource',
 function($resource){ 
@@ -43,6 +42,18 @@ function($resource){
 	});
 }]);
 
+candidateServices.factory('guyFactory', 
+['$http',
+function($http){ 
+	var guyFactory = {};
+
+	guyFactory.getGuys = function(){
+		return $http.get('http://api.maepaysoh.org/candidate/list?token=b97e8029-dfb2-557d-bfc5-c3a557f4386d&_with=party&constituency_st_pcode=MMR002&constituency_dt_pcode=MMR002D001&constituency_ts_pcode=MMR002001&per_page=200&legislature=state_region');
+	}
+
+	return guyFactory;
+}]);
+
 candidateServices.factory('getCandidateService', 
 ['$resource',
 function($resource){ 
@@ -50,7 +61,7 @@ function($resource){
 		query: {
 			method: 'GET', 
 			params:{
-				token:'3cfd10b9-f445-5686-8bbd-256e73dadffe',
+				token:'b97e8029-dfb2-557d-bfc5-c3a557f4386d',
 				st: 'st',
 				dt: 'dt',
 				ts: 'ts',
@@ -59,10 +70,3 @@ function($resource){
 		}
 	});
 }]);
-
-
-
-
-
-
-

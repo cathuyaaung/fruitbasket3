@@ -7,7 +7,7 @@
 
   <div class="col-sm-3">
     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlStates" 
+      <button class="btn btn-default dropdown-toggle regionbtn" type="button" id="ddlStates" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         {{selectedStateName}} <span class="caret"></span>
       </button>
@@ -21,7 +21,7 @@
 
   <div class="col-sm-3">
     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlDistricts" 
+      <button class="btn btn-default dropdown-toggle regionbtn" type="button" id="ddlDistricts" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         {{selectedDistrictName}} <span class="caret"></span>
       </button>
@@ -33,9 +33,10 @@
     </div>
   </div>
 
+
   <div class="col-sm-3">
     <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="ddlTownship" 
+      <button class="btn btn-default dropdown-toggle regionbtn" type="button" id="ddlTownship" 
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         {{selectedTownshipName}} <span class="caret"></span>
       </button>
@@ -58,9 +59,13 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Upper House</h3>
+        <h3 class="panel-title">Upper House
+        <button class="btn btn-default" ng-click="getUpperGuys()">Query</button>
+        </h3>
+        
       </div>
       <div class="panel-body">
+        
       </div>
       <!-- List group -->
       <ul class="list-group">
@@ -84,8 +89,8 @@
                   {{upperCandidate.legislature}}           
                   {{upperCandidate.constituency.name}}
                   {{upperCandidate.party.partyname}}
-                  <img ng-src="{{upperCandidate.party.party_flag}}" class="" width="10" height="10">
-                  <img ng-src="{{upperCandidate.party.party_seal}}" class="" width="10" height="10">
+                  <!-- <img ng-src="{{upperCandidate.party.party_flag}}" class="" width="10" height="10"> -->
+                  <!-- <img ng-src="{{upperCandidate.party.party_seal}}" class="" width="10" height="10"> -->
                 </p>
               </div>
             </div>
@@ -100,7 +105,10 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Lower House</h3>
+        <h3 class="panel-title">Lower House
+        <button class="btn btn-default" ng-click="getLowerGuys()">Query</button>
+        </h3>
+        
       </div>
       <div class="panel-body">
         
@@ -111,7 +119,7 @@
         <!-- List Item -->
         <a href="#" class="list-group-item clearfix" ng-repeat="lowerCandidate in lowerCandidates.data">
           <div class="col-sm-2">
-            <img ng-src="{{lowerCandidate.photo_url}}" class="img-circle" width="30">
+            <!-- <img ng-src="{{lowerCandidate.photo_url}}" class="img-circle" width="30"> -->
           </div>
           <div class="col-sm-10">
             <div class="row">
@@ -127,8 +135,8 @@
                   {{lowerCandidate.legislature}}           
                   {{lowerCandidate.constituency.name}}
                   {{lowerCandidate.party.partyname}}
-                  <img ng-src="{{lowerCandidate.party.party_flag}}" class="" width="10" height="10">
-                  <img ng-src="{{lowerCandidate.party.party_seal}}" class="" width="10" height="10">
+                  <!-- <img ng-src="{{lowerCandidate.party.party_flag}}" class="" width="10" height="10"> -->
+                  <!-- <img ng-src="{{lowerCandidate.party.party_seal}}" class="" width="10" height="10"> -->
                 </p>
               </div>
             </div>
@@ -144,7 +152,10 @@
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">State House</h3>
+        <h3 class="panel-title">State House
+        <button class="btn btn-default" ng-click="getStateGuys()">Query</button>
+        </h3>
+
       </div>
       <div class="panel-body">
         
@@ -155,7 +166,7 @@
         <!-- List Item -->
         <a href="#" class="list-group-item clearfix" ng-repeat="stateCandidate in stateCandidates.data">
           <div class="col-sm-2">
-            <img ng-src="{{stateCandidate.photo_url}}" class="img-circle" width="30">
+            <!-- <img ng-src="{{stateCandidate.photo_url}}" class="img-circle" width="30"> -->
           </div>
           <div class="col-sm-10">
             <div class="row">
@@ -171,8 +182,8 @@
                   {{stateCandidate.legislature}}
                   {{stateCandidate.constituency.name}}
                   {{stateCandidate.party.partyname}}
-                  <img ng-src="{{stateCandidate.party.party_flag}}" class="" width="10" height="10">
-                  <img ng-src="{{stateCandidate.party.party_seal}}" class="" width="10" height="10">
+                  <!-- <img ng-src="{{stateCandidate.party.party_flag}}" class="" width="10" height="10"> -->
+                  <!-- <img ng-src="{{stateCandidate.party.party_seal}}" class="" width="10" height="10"> -->
                 </p>
               </div>
             </div>
