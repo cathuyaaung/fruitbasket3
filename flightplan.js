@@ -2,7 +2,7 @@ var plan = require('flightplan');
 
 var appName = 'FruitBasket3';
 var username = 'deploy';
-var startFile = 'bin/www';
+var startFile = 'server/bin/www';
 
 var tmpDir = appName+'-' + new Date().getTime();
 
@@ -45,11 +45,15 @@ plan.local(function(local) {
 // run commands on remote hosts (destinations)
 plan.remote(function(remote) {
   remote.log('Move folder to root');
+
+  //Copy folder from Temp to ~ Home folder
   remote.sudo('cp -R /tmp/' + tmpDir + ' ~', {user: username});
-  remote.rm('-rf /tmp/' + tmpDir);
+  //Remove Folder from Temp
+  remote.rm('-R /tmp/' + tmpDir);
 
   remote.log('Install dependencies');
   remote.sudo('npm --production --prefix ~/' + tmpDir + ' install ~/' + tmpDir, {user: username});
+  remote.sudo('bower install ~/' + tmpDir, {user: username});
 
   remote.log('Reload application');
   remote.sudo('ln -snf ~/' + tmpDir + ' ~/'+appName, {user: username});

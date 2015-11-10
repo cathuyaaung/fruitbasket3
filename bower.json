@@ -2,6 +2,7 @@
   "name": "fruitbasket2",
   "description": "",
   "main": "index.js",
+  "directory": "client/",
   "authors": [
     "Thomas Aung <thu.ya.a@gmail.com>"
   ],

@@ -13,7 +13,18 @@ require('./models/Township');
 require('./models/Village');
 require('./models/VillageTract');
 require('./models/Ward');
-mongoose.connect('mongodb://localhost/fruitbasket');
+
+var dbURL = 'mongodb://localhost/fruitbasket';
+//var dbURL = 'mongodb://localhost:27017/FruitBasket3';
+
+mongoose.connect(dbURL, function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("successfully connected to the database");
+    }
+});
+
 
 var app = express();
 
@@ -29,13 +40,13 @@ app.set('view engine', 'ejs');
 
 
 
-app.set('views', '../client/views');
+app.set('views', 'client/views');
 
 // Static files
-app.use('/bower_components', express.static('../client/bower_components'));
-app.use('/javascripts', express.static('../client/javascripts'));
-app.use('/partials', express.static('../client/views/partials'));
-app.use('/stylesheets', express.static('../client/stylesheets'));
+app.use('/bower_components', express.static('client/bower_components'));
+app.use('/javascripts', express.static('client/javascripts'));
+app.use('/partials', express.static('client/views/partials'));
+app.use('/stylesheets', express.static('client/stylesheets'));
 
 // Routes
 var routes = require('./routes/index');
