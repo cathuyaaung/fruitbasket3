@@ -2,7 +2,7 @@ var plan = require('flightplan');
 
 var appName = 'FruitBasket3';
 var username = 'deploy';
-var startFile = 'server/bin/www';
+var startFile = './server/bin/www';
 
 var tmpDir = appName+'-' + new Date().getTime();
 
@@ -53,10 +53,22 @@ plan.remote(function(remote) {
 
   remote.log('Install dependencies');
   remote.sudo('npm --production --prefix ~/' + tmpDir + ' install ~/' + tmpDir, {user: username});
-  remote.sudo('bower install ~/' + tmpDir, {user: username});
+  
+  remote.with('cd ~/'+tmpDir, function() {
+    remote.exec('bower install');
+  });
 
   remote.log('Reload application');
   remote.sudo('ln -snf ~/' + tmpDir + ' ~/'+appName, {user: username});
-  remote.exec('forever stop ~/'+appName+'/'+startFile, {failsafe: true});
-  remote.exec('forever start ~/'+appName+'/'+startFile);
+  //remote.exec('forever stop ~/'+appName+'/'+startFile, {failsafe: true});
+  //remote.exec('forever start ~/'+appName+'/'+startFile);
+
+
+  remote.with('cd ~/'+appName, function() {
+    remote.exec('forever stop ' + startFile, {failsafe: true});
+    remote.exec('forever start ' + startFile);
+  });
+
+
+
 });
